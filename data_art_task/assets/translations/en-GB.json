@@ -1,0 +1,48 @@
+{
+    "keyWords": {
+        "transactionManager": "Transaction Manager",
+        "continue": "Continue",
+        "ok": "Ok",
+        "somethingWentWrong": "Something Went Wrong"
+    },
+    "authorization": {
+        "enterYourEmail": "Please enter your email to sign in or register",
+        "register": "Register",
+        "signIn": "Sign In",
+        "userExists": "Welcome Back! Please input your password to sign in",
+        "userDoesNotExist": "You are just two fields away from having an account",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "passwordLength": "Should contain at least 8 characters",
+        "containsNumber": "Should contain at least one number",
+        "containsUppercase": "Should contain at least one uppercase character",
+        "passwordsMatch": "Passwords need to match"
+    },
+    "transaction": {
+        "transactions": "Transactions",
+        "transactionsQuantity": "Transactions ({quantity})",
+        "overview": "Overview",
+        "value": "Value",
+        "date": "Date",
+        "commission": "Commission",
+        "total": "Total",
+        "id": "Id",
+        "type": "Type",
+        "cancelTransaction": "Cancel Transaction",
+        "transactionCancellation": "Transaction Cancellation",
+        "transactionCancelled": "Transaction [{id}] is successfully cancelled"
+    },
+    "overview": {
+        "totalTransfer": "Total Transfer",
+        "totalDeposit": "Total Deposit",
+        "totalWithdrawal": "Total Withdrawal"
+    },
+    "enums": {
+        "transactionTypes": {
+            "TRANSFER": "Transfer",
+            "DEPOSIT": "Deposit",
+            "WITHDRAWAL": "Withdrawal"
+        }
+    }
+}

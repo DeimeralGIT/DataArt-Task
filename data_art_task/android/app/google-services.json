@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "370864064422",
+    "project_id": "dataart-task",
+    "storage_bucket": "dataart-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370864064422:android:0f90b9674ba8842dbef167",
+        "android_client_info": {
+          "package_name": "com.example.data_art_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370864064422-04o3sudonm3tclmgtp8ntu7edsdvqqbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhae0oNUgIvGomZhV7-1QtjE86KVJEVIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370864064422-04o3sudonm3tclmgtp8ntu7edsdvqqbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

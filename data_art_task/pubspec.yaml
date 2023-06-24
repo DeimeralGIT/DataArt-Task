@@ -1,0 +1,50 @@
+name: data_art_task
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # A set of utilities that allow you to easily consume a Redux Store to build Flutter Widgets.
+  flutter_redux: ^0.10.0
+  provider: ^6.0.5
+  # Redux for Dart using generics for typed State. 
+  redux: ^5.0.0
+  # Flutter navigation package
+  auto_route: ^7.4.0
+  # firebase tools
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  cloud_firestore: ^4.8.1
+  # Easy and Fast internationalizing and localization your Flutter Apps,
+  # this package simplify the internationalizing process .
+  easy_localization: ^3.0.2
+  # Flutter widgets for easily adding gaps inside Flex widgets such as Columns and Rows or scrolling views.
+  gap: ^3.0.0
+  # Scale and opacity animated Button for Flutter
+  flutter_scale_tap: ^1.0.5
+  # Is exactly what it says
+  dotted_line: ^3.2.2
+  # This Flutter package provides a Pie Chart Widget with cool animation.
+  pie_chart: ^5.3.2
+  # A powerful HTTP client for Dart/Flutter, which supports global configuration, interceptors, FormData, request cancellation, file uploading/downloading, timeout, and custom adapters etc.
+  dio: ^5.2.1+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # This package contains a recommended set of lints for Flutter apps, packages, and plugins to encourage good coding practices.
+  flutter_lints: ^2.0.1
+  # The build_runner package provides a concrete way of generating files using Dart code.
+  build_runner: ^2.4.5
+  auto_route_generator: ^7.1.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/translations/
