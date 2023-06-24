@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:data_art_task/enums/transaction_type.dart';
+import 'package:data_art_task/constants/transaction_type.dart';
 import 'package:data_art_task/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -69,15 +69,15 @@ class TransactionCheck extends StatelessWidget {
               ),
               ReceiptRowWidget(
                 label: 'transaction.value',
-                value: '\$ ${transaction.value.toStringAsFixed(2)}',
+                value: '\$ ${transaction.value.roundifyDouble}',
               ),
               ReceiptRowWidget(
                 label: 'transaction.commission',
-                value: '\$ ${transaction.commission.toStringAsFixed(2)}',
+                value: '\$ ${transaction.commission.roundifyDouble}',
               ),
               ReceiptRowWidget(
                 label: 'transaction.total',
-                value: '\$ ${transaction.total.toStringAsFixed(2)}',
+                value: '\$ ${transaction.total.roundifyDouble}',
               ),
               ReceiptRowWidget(
                 label: 'transaction.id',

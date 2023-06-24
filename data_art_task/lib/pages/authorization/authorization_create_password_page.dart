@@ -6,6 +6,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:gap/gap.dart';
 import 'package:redux/redux.dart';
 
+import '../../constants/regexp.dart';
 import '../../routes/app_router.dart';
 import '../../store/authorization/authorization_actions.dart';
 import '../../store/store.dart';
@@ -58,10 +59,8 @@ class AuthorizationCreatePasswordPage extends StatelessWidget {
       final pass = store.state.authorizationModel.password;
 
       return pass.length >= 8 &&
-          pass.contains(RegExp(r'\d')) &&
-          pass.contains(
-            RegExp(r'[A-Z]'),
-          );
+          pass.contains(numberRegexp) &&
+          pass.contains(uppercaseRegexp);
     }
 
     bool passwordsMatch() {
@@ -111,12 +110,12 @@ class AuthorizationCreatePasswordPage extends StatelessWidget {
               ),
               const Gap(16),
               PasswordCheck(
-                check: (pass) => pass.contains(RegExp(r'\d')),
+                check: (pass) => pass.contains(numberRegexp),
                 checkDescription: 'authorization.containsNumber',
               ),
               const Gap(16),
               PasswordCheck(
-                check: (pass) => pass.contains(RegExp(r'[A-Z]')),
+                check: (pass) => pass.contains(uppercaseRegexp),
                 checkDescription: 'authorization.containsUppercase',
               ),
               const Gap(16),

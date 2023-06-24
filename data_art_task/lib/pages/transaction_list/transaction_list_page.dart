@@ -35,15 +35,15 @@ class TransactionListPage extends StatelessWidget {
           backgroundColor: AppColors.background,
           body: SizedBox(
             width: context.width,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(vertical: 32),
-                itemCount: transactions.length,
-                separatorBuilder: (_, __) => const Gap(16),
-                itemBuilder: (_, index) => TransactionWidget(
-                  transaction: transactions[index],
-                ),
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(
+                vertical: 32,
+                horizontal: 32,
+              ),
+              itemCount: transactions.length,
+              separatorBuilder: (_, __) => const Gap(16),
+              itemBuilder: (_, index) => TransactionWidget(
+                transaction: transactions[index],
               ),
             ),
           ),

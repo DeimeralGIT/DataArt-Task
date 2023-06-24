@@ -1,8 +1,9 @@
 import 'package:data_art_task/utils/context_extensions.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-import '../../../enums/transaction_type.dart';
+import '../../../constants/transaction_type.dart';
 import '../../../store/store.dart';
 
 class PieChartWidget extends StatelessWidget {
@@ -17,11 +18,11 @@ class PieChartWidget extends StatelessWidget {
     final int withdrawalCount = transactionCount(TransactionType.WITHDRAWAL);
 
     return {
-      '${TransactionType.TRANSFER.title} ($transferCount)':
+      '${TransactionType.TRANSFER.title.tr()} ($transferCount)':
           transferCount.toDouble(),
-      '${TransactionType.DEPOSIT.title} ($depositCount)':
+      '${TransactionType.DEPOSIT.title.tr()} ($depositCount)':
           depositCount.toDouble(),
-      '${TransactionType.WITHDRAWAL.title} ($withdrawalCount)':
+      '${TransactionType.WITHDRAWAL.title.tr()} ($withdrawalCount)':
           withdrawalCount.toDouble(),
     };
   }

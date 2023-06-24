@@ -13,12 +13,14 @@ final store = Store(
 class AppState {
   //Authorization
   AuthorizationModel authorizationModel;
+  User? user;
+
+  //Transactions
+  List<TransactionModel> transactions;
 
   //global
   bool isLoading;
   int pageViewIndex;
-  User? user;
-  List<TransactionModel> transactions;
 
   AppState({
     required this.authorizationModel,
@@ -32,7 +34,7 @@ class AppState {
     return AppState(
       authorizationModel: AuthorizationModel(),
       isLoading: false,
-      transactions: generateRandomTransactions(),
+      transactions: [],
       pageViewIndex: 0,
     );
   }

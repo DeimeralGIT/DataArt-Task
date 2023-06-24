@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:data_art_task/utils/context_extensions.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:data_art_task/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../enums/transaction_type.dart';
+import '../../constants/transaction_type.dart';
 import '../../store/store.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/custom_app_bar.dart';
@@ -50,17 +50,17 @@ class TransactionOverviewPage extends StatelessWidget {
                 const Gap(32),
                 ReceiptRowWidget(
                   label: 'overview.totalTransfer',
-                  value: '\$ ${totalTransfer.toStringAsFixed(2)}',
+                  value: '\$ ${totalTransfer.roundifyDouble}',
                 ),
                 const Gap(16),
                 ReceiptRowWidget(
                   label: 'overview.totalDeposit',
-                  value: '\$ ${totalDeposit.toStringAsFixed(2)}',
+                  value: '\$ ${totalDeposit.roundifyDouble}',
                 ),
                 const Gap(16),
                 ReceiptRowWidget(
                   label: 'overview.totalWithdrawal',
-                  value: '\$ ${totalWithdrawal.toStringAsFixed(2)}',
+                  value: '\$ ${totalWithdrawal.roundifyDouble}',
                 ),
                 const Gap(16),
               ],

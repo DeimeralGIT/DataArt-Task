@@ -1,5 +1,4 @@
 // ignore_for_file: constant_identifier_names
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 enum TransactionType {
@@ -9,7 +8,7 @@ enum TransactionType {
 }
 
 extension TransactionTools on TransactionType {
-  String get title => 'enums.transactionTypes.$name'.tr();
+  String get title => 'enums.transactionTypes.$name';
 
   IconData get icon {
     switch (this) {

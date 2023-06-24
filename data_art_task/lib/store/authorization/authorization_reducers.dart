@@ -1,10 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-import '../../models/transaction_model.dart';
+import '../../constants/regexp.dart';
+import '../../utils/firebase_utils.dart';
+import '../../utils/firestore_utils.dart';
 import '../actions.dart';
 import '../store.dart';
 import 'authorization_actions.dart';
+
+final firebaseUtils = FirebaseUtils();
+final firestoreUtils = FirestoreUtils();
 
 AppState authorizationReducer(AppState state, AppAction action) {
   switch (action) {
@@ -29,16 +31,12 @@ AppState authorizationReducer(AppState state, AppAction action) {
   }
 }
 
-String updateEmail(String email) {
-  RegExp emailRegex = RegExp(
-      r'^[\w-]+(\.[\w-]+)*@([a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.)+[a-zA-Z]{2,}$');
-
-  return emailRegex.hasMatch(email) ? email : '';
-}
+String updateEmail(String email) => emailRegexp.hasMatch(email) ? email : '';
 
 Future<void> submitEmail(Function onComplete) async {
   store.dispatch(SetLoadingAction(true));
-  store.state.authorizationModel.userExists = await doesUserExist();
+  store.state.authorizationModel.userExists =
+      await firebaseUtils.doesUserExist();
   store.dispatch(SetLoadingAction(false));
   onComplete.call();
 }
@@ -53,27 +51,10 @@ Future<void> submitPassword(Function(String) onComplete) async {
   onComplete(error);
 }
 
-Future<bool> doesUserExist() async {
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  final signInMethods = await auth
-      .fetchSignInMethodsForEmail(store.state.authorizationModel.email);
-  return signInMethods.isNotEmpty;
-}
-
 Future<String> registerUser() async {
   try {
-    UserCredential userCredential =
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: store.state.authorizationModel.email,
-      password: store.state.authorizationModel.password,
-    );
-    store.state.user = userCredential.user!;
-
-    final CollectionReference<Map<String, dynamic>> users =
-        FirebaseFirestore.instance.collection(store.state.user!.uid);
-    for (final transaction in store.state.transactions) {
-      await users.add(transaction.toMap());
-    }
+    await firebaseUtils.createUser();
+    await FirestoreUtils().createCollection();
 
     return '';
   } on Exception catch (e) {
@@ -83,26 +64,8 @@ Future<String> registerUser() async {
 
 Future<String> signInUser() async {
   try {
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: store.state.authorizationModel.email,
-      password: store.state.authorizationModel.password,
-    );
-    store.state.user = userCredential.user!;
-    CollectionReference collectionRef =
-        FirebaseFirestore.instance.collection(store.state.user!.uid);
-
-    QuerySnapshot querySnapshot = await collectionRef.get();
-    List<QueryDocumentSnapshot> documents = querySnapshot.docs;
-    final List<TransactionModel> list = [];
-    for (QueryDocumentSnapshot document in documents) {
-      list.add(
-        TransactionModel.fromMap(
-          document.data() as Map<String, dynamic>,
-        ),
-      );
-    }
-    store.state.transactions = list;
+    await firebaseUtils.signInUser();
+    await firestoreUtils.getCollection();
 
     return '';
   } catch (e) {

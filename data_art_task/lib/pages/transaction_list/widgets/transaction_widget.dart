@@ -1,4 +1,4 @@
-import 'package:data_art_task/enums/transaction_type.dart';
+import 'package:data_art_task/constants/transaction_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 import 'package:gap/gap.dart';
@@ -46,10 +46,6 @@ class TransactionWidget extends StatelessWidget {
                 transaction.type.icon,
                 color: AppColors.primary,
               ),
-            ),
-            const Divider(
-              color: AppColors.primary,
-              thickness: 2,
             ),
             const Gap(16),
             Expanded(

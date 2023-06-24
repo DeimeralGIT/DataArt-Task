@@ -23,7 +23,7 @@ class CustomPrimaryButton extends StatelessWidget {
         children: [
           Expanded(
             child: ScaleTap(
-              onPressed: onPressed,
+              onPressed: !store.state.isLoading ? onPressed : null,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(16)),
