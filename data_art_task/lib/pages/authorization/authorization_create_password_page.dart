@@ -77,8 +77,9 @@ class AuthorizationCreatePasswordPage extends StatelessWidget {
         ),
         backgroundColor: AppColors.background,
         resizeToAvoidBottomInset: true,
-        body: Padding(
+        body: SingleChildScrollView(
           padding: const EdgeInsets.all(32),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               Text(
