@@ -1,3 +1,21 @@
-# data_art_task
+Instructions:
 
-A new Flutter project.
+- User authentication is resolved with Firebase
+- Data storage is resolved with Firestore
+- State management is resolved using Redux only
+- First page contains the Email field with regex validation
+  - on submitting, the application checks if there is an existing account with the written Email
+    - If there is such account, next page will contain a password field
+      - If signing in with the password is successfull:
+        - App will fetch user's transactions from Firestore (if none: new ones will be generated and stored)
+        - The app will navigate to dashboard
+    - If no account is associated with the Email, next page will be for password creation.
+      - Password is checked to contain more than 8 characters, at least one number and one Uppercase letter
+      - To be able to register the password and confirm password inputs must match
+        - After registration 50 random transactions will be generated and stored to Firestore
+        - The app will navigate to dashboard
+- Dashboard consists of a pageview and a bottom navigation bar
+  - First page includes the list of user's transactions
+    - If a transaction is pressed, an overlay will pop up with the transaction details and cancellation button
+    - The overlay barrier is dismissible, and it will close on outside touches
+  - Second page includes a donat chart of transaction types and total values of each type
