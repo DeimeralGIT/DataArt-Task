@@ -1,4 +1,5 @@
 import 'package:data_art_task/constants/transaction_type.dart';
+import 'package:data_art_task/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_scale_tap/flutter_scale_tap.dart';
 import 'package:gap/gap.dart';
@@ -41,7 +42,7 @@ class TransactionWidget extends StatelessWidget {
         child: Row(
           children: [
             Tooltip(
-              message: transaction.type.title,
+              message: transaction.type.title.tr(),
               child: Icon(
                 transaction.type.icon,
                 color: AppColors.primary,
