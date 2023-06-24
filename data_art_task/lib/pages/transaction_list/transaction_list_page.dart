@@ -36,10 +36,8 @@ class TransactionListPage extends StatelessWidget {
           body: SizedBox(
             width: context.width,
             child: ListView.separated(
-              padding: const EdgeInsets.symmetric(
-                vertical: 32,
-                horizontal: 32,
-              ),
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.all(32),
               itemCount: transactions.length,
               separatorBuilder: (_, __) => const Gap(16),
               itemBuilder: (_, index) => TransactionWidget(

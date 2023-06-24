@@ -39,32 +39,30 @@ class TransactionOverviewPage extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SizedBox(
         width: context.width,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const PieChartWidget(),
-                const Gap(32),
-                ReceiptRowWidget(
-                  label: 'overview.totalTransfer',
-                  value: '\$ ${totalTransfer.roundifyDouble}',
-                ),
-                const Gap(16),
-                ReceiptRowWidget(
-                  label: 'overview.totalDeposit',
-                  value: '\$ ${totalDeposit.roundifyDouble}',
-                ),
-                const Gap(16),
-                ReceiptRowWidget(
-                  label: 'overview.totalWithdrawal',
-                  value: '\$ ${totalWithdrawal.roundifyDouble}',
-                ),
-                const Gap(16),
-              ],
-            ),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const PieChartWidget(),
+              const Gap(32),
+              ReceiptRowWidget(
+                label: 'overview.totalTransfer',
+                value: '\$ ${totalTransfer.roundifyDouble}',
+              ),
+              const Gap(16),
+              ReceiptRowWidget(
+                label: 'overview.totalDeposit',
+                value: '\$ ${totalDeposit.roundifyDouble}',
+              ),
+              const Gap(16),
+              ReceiptRowWidget(
+                label: 'overview.totalWithdrawal',
+                value: '\$ ${totalWithdrawal.roundifyDouble}',
+              ),
+              const Gap(16),
+            ],
           ),
         ),
       ),
