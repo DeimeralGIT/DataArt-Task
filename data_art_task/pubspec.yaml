@@ -33,6 +33,8 @@ dependencies:
   pie_chart: ^5.3.2
   # A powerful HTTP client for Dart/Flutter, which supports global configuration, interceptors, FormData, request cancellation, file uploading/downloading, timeout, and custom adapters etc.
   dio: ^5.2.1+1
+  # A library for Dart that generates fake data.
+  faker: ^2.1.0
 
 dev_dependencies:
   flutter_test:
