@@ -30,6 +30,7 @@ class FirestoreUtils {
     for (final transaction in transactions) {
       await users.add(transaction.toMap());
     }
+    store.state.transactions = transactions;
   }
 
   Future<void> getCollection() async {

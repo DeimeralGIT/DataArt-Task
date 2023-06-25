@@ -54,7 +54,7 @@ Future<void> submitPassword(Function(String) onComplete) async {
 Future<String> registerUser() async {
   try {
     await firebaseUtils.createUser();
-    await FirestoreUtils().createCollection();
+    await firestoreUtils.createCollection();
 
     return '';
   } on Exception catch (e) {
